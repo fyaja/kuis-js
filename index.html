@@ -4,30 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple quiz js</title>
+  <title>Simple Quiz JS</title>
   <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
   <div class="container">
     <div class="card">
-      <h1>Quiz pengetahuan !</h1>
-      <h2 class="question"></h2>
-      <p class="display"></p>
-      <input type="text" placeholder="Jawab Disini !" onkeydown="
-      displayEnter(event)">
-      <button class="start" onclick="
-      startQuiz();
-      ">Start</button>
-      <button class="submit" onclick="
-      checkAnswer();
-      ">Submit</button>
-      <button class="next" onclick="
-      nextQuestion();
-      ">Next question</button>
-      <button class="restart" onclick="
-      restartQuiz();
-      ">Restart</button>
+      <h1 class="title">Quiz Game !</h1>
+      <button class="start">Start</button>
+      <div class="rules">
+        <ul>
+          <li>&#x2022; Tekan tombol Start Quiz untuk memulai.</li>
+          <li>&#x2022; Pertanyaan pertama ditampilkan, timer mulai dari 15 detik.</li>
+          <li>&#x2022; Tekan Submit atau tombol Enter untuk mengirim jawaban.</li>
+          <li>&#x2022; Jawaban tidak dapat diubah setelah dikirim atau waktu habis.</li>
+          <li>&#x2022; Setiap pertanyaan memiliki waktu 15 detik.</li>
+          <li>&#x2022; Jika waktu habis, pertanyaan berikutnya muncul setelah 3 detik.</li>
+          <li>&#x2022; Tekan tombol Next atau tombol 'ArrowRight' untuk melanjutkan ke pertanyaan berikutnya.</li>
+          <li>&#x2022; Jika semua pertanyaan dijawab, skor akhir ditampilkan dan kuis berakhir.</li>
+        </ul>
+        <div class="rules-btns">
+          <button class="quit-quiz">Quit</button>
+          <button class="start-quiz">Start</button>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="q-span">Question</p>
+        <div class="top">
+          <h2 class="question"></h2>
+          <span class="time"></span>
+        </div>
+        <p class="display"></p>
+        <form class="submit-form">
+          <input type="text" placeholder="Jawab Disini !">
+          <button type="submit" class="submit">Submit</button>
+        </form>
+        <button class="next">Next question</button>
+      </div>
+      <div class="end-btns">
+        <button class="quit">Quit</button>
+        <button class="restart">Restart</button>
+      </div>
     </div>
   </div>
 
