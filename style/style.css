@@ -143,6 +143,11 @@ button {
   color: rgb(0, 205, 0);
 }
 
+.highest-score{
+  font-size: 20px;
+  color: rgb(173, 173, 173);
+}
+
 ul{
   margin-bottom: 10px;
 }

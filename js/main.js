@@ -21,6 +21,7 @@
   { question: 'Sungai terpanjang di Indonesia adalah?', answer: 'kapuas' }
 ];
 
+  let scores = JSON.parse(localStorage.getItem('scores')) || [];
   let questionIndex = 0;
   let check = false;
   let score = 0;
@@ -28,10 +29,12 @@
   let intervalId;
   
   document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      checkAnswer()
-    } else if(event.key === 'ArrowRight'){
-      nextQuestion()
+    if(hidden.style.display === 'flex'){
+      if (event.key === 'Enter') {
+        checkAnswer()
+      } else if(event.key === 'ArrowRight'){
+        nextQuestion()
+      }
     }
   });
   
@@ -121,8 +124,13 @@
   function endQuiz() {
     clearInterval(intervalId);
     const question = document.querySelector('.question');
-    question.textContent = 'Pertanyaan Habis!';
-    display.innerHTML = `Skor : <span class="score">${score}</span> / 100`;
+    scores.push(score)
+    localStorage.setItem('scores', JSON.stringify(scores));
+    question.innerHTML = `Pertanyaan Habis! 
+    <br>
+    <span class="highest-score"> Skor tertinggi mu ${Math.max(...scores)} </span>`;
+    display.innerHTML = `
+    Skor mu <span class="score">${score}</span> / 100`;
     if (score >= 70) {
       document.querySelector('.score').classList.add('green');
     }
